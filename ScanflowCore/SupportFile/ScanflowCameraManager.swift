@@ -77,6 +77,8 @@ open class ScanflowCameraManager: ScanflowPermissionManger, AVCaptureMetadataOut
         switch overlayApperance {
         case .square:
             maskSize = CGSize(width: (previewSize!.width * 0.7), height: (previewSize!.width * 0.7))
+        case .fullscreen:
+            maskSize = CGSize(width: (previewSize!.width * 0.9), height: (previewSize!.height * 0.8))
         case .rectangle:
             maskSize = CGSize(width: (previewSize!.width * 0.85), height: (previewSize!.width * 0.12))
         case .hide:
@@ -900,6 +902,8 @@ open class ScanflowCameraManager: ScanflowPermissionManger, AVCaptureMetadataOut
     }
     
     public func handoverImagetoDeletate(originalFrame: CVPixelBuffer, croppedImage: UIImage) {
+        
+        print("My image", croppedImage)
         if toBeSendInDelegate == true {
             DispatchQueue.main.async {
                 self.delegate?.captured(originalframe: originalFrame, overlayFrame: self.outterWhiteRectView.frame, croppedImage: croppedImage)

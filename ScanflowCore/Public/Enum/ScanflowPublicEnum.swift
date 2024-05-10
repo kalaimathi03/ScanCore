@@ -149,11 +149,19 @@ public enum BarCodeType {
 
     case tire
     case dotTire
+    case vinChassis
+    case textScanWhiteCoated
+    case universalCodes
+    
+    case sugarcane
+    case switchType
 
     case containerHorizontal
     case containerVertical
 
     case docuementScaning
+    case idCard
+    case label
 }
 
 
@@ -162,6 +170,7 @@ public enum BarCodeType {
     case rectangle
     case hide
     case tire
+    case fullscreen
     case containerHorizantal
     case containerVerticle
     case docuementScaning
