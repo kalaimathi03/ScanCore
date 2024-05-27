@@ -41,7 +41,6 @@
 		68C7EA062A8118B700E75A17 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C7EA052A8118B700E75A17 /* assets.xcassets */; };
 		75B57DBBC4D570FA5A728197 /* Pods_ScanflowCore_ScanflowCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5F8B814412BA44143B9FC8 /* Pods_ScanflowCore_ScanflowCoreTests.framework */; };
 		881BC8502BD7D3B80087A92D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B86DB672BB2B70200C6B6EA /* opencv2.framework */; };
-		881BC8512BD7D3B80087A92D /* opencv2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B86DB672BB2B70200C6B6EA /* opencv2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E3701178089318782D1560EE /* Pods_ScanflowCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA021C546CAC108A798572 /* Pods_ScanflowCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,20 +53,6 @@
 			remoteInfo = ScanflowCoreFramework;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8B86DB642BB2B4EB00C6B6EA /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				881BC8512BD7D3B80087A92D /* opencv2.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		627F23DA11B62238721A5E2F /* Pods-ScanflowCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanflowCore.release.xcconfig"; path = "Target Support Files/Pods-ScanflowCore/Pods-ScanflowCore.release.xcconfig"; sourceTree = "<group>"; };
@@ -349,7 +334,6 @@
 				68015A6428C1D2B600493018 /* Sources */,
 				68015A6528C1D2B600493018 /* Frameworks */,
 				68015A6628C1D2B600493018 /* Resources */,
-				8B86DB642BB2B4EB00C6B6EA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

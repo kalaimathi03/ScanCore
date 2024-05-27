@@ -902,8 +902,6 @@ open class ScanflowCameraManager: ScanflowPermissionManger, AVCaptureMetadataOut
     }
     
     public func handoverImagetoDeletate(originalFrame: CVPixelBuffer, croppedImage: UIImage) {
-        
-        print("My image", croppedImage)
         if toBeSendInDelegate == true {
             DispatchQueue.main.async {
                 self.delegate?.captured(originalframe: originalFrame, overlayFrame: self.outterWhiteRectView.frame, croppedImage: croppedImage)
