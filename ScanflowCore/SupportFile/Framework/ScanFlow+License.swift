@@ -194,7 +194,8 @@ class ScanflowLicenseManager: NSObject {
 //            let data = Data()
             guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode else {
                 debugPrint("Invalid Authkey")
-                self.showToast(message: "Invalid Authkey", boolToastRemove: true)
+                debugPrint(response as Any)
+              //  self.showToast(message: "Invalid Authkey", boolToastRemove: true)
                 return
             }
             do {

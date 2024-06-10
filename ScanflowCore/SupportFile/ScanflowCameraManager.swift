@@ -60,6 +60,7 @@ open class ScanflowCameraManager: ScanflowPermissionManger, AVCaptureMetadataOut
     public var isFrameProcessing: Bool = false
     public var currentCoordinates: CLLocation?
     public var captureStarted: Bool = true
+    public var passScaning: Bool = false
 
     //Arc color
     private var leftTopArc: UIColor?
@@ -80,7 +81,7 @@ open class ScanflowCameraManager: ScanflowPermissionManger, AVCaptureMetadataOut
         case .fullscreen:
             maskSize = CGSize(width: (previewSize!.width * 0.9), height: (previewSize!.height * 0.8))
         case .rectangle:
-            maskSize = CGSize(width: (previewSize!.width * 0.85), height: (previewSize!.width * 0.12))
+            maskSize = CGSize(width: (previewSize!.width * 0.9), height: (previewSize!.height * 0.25))
         case .hide:
             maskSize = CGSize.zero
         case .tire:
@@ -127,6 +128,14 @@ open class ScanflowCameraManager: ScanflowPermissionManger, AVCaptureMetadataOut
         self.rightDownArc = rightDownArc
 
         self.scannerType = scannerMode
+        
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        
+        print("previewView bounds \(previewView.bounds)")
+        print("previewView frame \(previewView.frame)")
+        print("screenWidth  \(screenWidth)")
+
         self.previewView = PreviewView(frame: previewView.bounds)
         previewView.addSubview(self.previewView)
         super.init()
@@ -907,6 +916,7 @@ open class ScanflowCameraManager: ScanflowPermissionManger, AVCaptureMetadataOut
                 self.delegate?.captured(originalframe: originalFrame, overlayFrame: self.outterWhiteRectView.frame, croppedImage: croppedImage)
             }
         } else {
+            
             captureDelegate?.readData(originalframe: originalFrame, croppedFrame: croppedImage.toPixelBuffer())
         }
     }
@@ -1110,9 +1120,10 @@ extension ScanflowCameraManager: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         SFManager.shared.config.frameCount += 1
         
-        if SFManager.shared.config.frameCount < 5 {
+        if SFManager.shared.config.frameCount < 5 || passScaning{
             return
         }
+        
         
         // Converts the CMSampleBuffer to a CVPixelBuffer.
         
